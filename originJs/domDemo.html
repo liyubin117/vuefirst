@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>domDemo</title>
+	<meta charset="UTF-8">
+	
+	<script type="text/javascript">
+		<!-- 改变文件内容 -->
+		function changeById(id,content){
+			var ptag=document.getElementById(id);
+			ptag.innerHTML=content;
+		}
+		function changeByTag(id,name,index,content){
+			var ptag=document.getElementById(id).getElementsByTagName(name);
+			ptag[index].innerHTML=content;
+		}
+		<!-- onchange事件 -->
+		function myFunction()
+		{
+			var x=document.getElementById("fname");
+			x.value=x.value.toUpperCase();
+		}
+		<!-- onmouseover 和 onmouseout 事件 -->
+		function mOver(obj)
+		{
+		obj.innerHTML="谢谢"
+		}
+		function mOut(obj)
+		{
+		obj.innerHTML="把鼠标移到上面"
+		}
+		<!-- onmousedown, onmouseup事件 -->
+		function mDown(obj)
+		{
+		obj.style.backgroundColor="#1ec5e5";
+		obj.innerHTML="请释放鼠标按钮"
+		}
+		function mUp(obj)
+		{
+		obj.style.backgroundColor="green";
+		obj.innerHTML="请按下鼠标按钮"
+		}
+		<!-- onfocus事件 -->
+		function myFocus(x)
+		{
+		x.style.background="yellow";
+		}
+	</script>
+</head>
+<!-- onload事件 -->
+<body onload="checkCookies()">
+	<div id="div1">
+		<p id="ptag1">ptag1:this is a p tag</p>
+		<p id="ptag2">ptag2:this is a p tag</p>
+	</div>
+
+	<button type="button" onclick="changeById('ptag1','new p tag')">changeById</button>
+	<button type="button" onclick="changeByTag('div1','p',1,'new p tag 2')">changeByTag</button>
+	
+	<!-- DOM事件 -->
+	<h1 onclick="if(this.innerHTML=='请点击此处') this.innerHTML='谢谢'; else this.innerHTML='请点击此处' ">请点击此处</h1>
+
+	<button id="myBtn">点击这里</button>
+	<!-- 使用JS分配事件 -->
+	<script type="text/javascript">
+		document.getElementById("myBtn").onclick=function(){displayDate()};
+		function displayDate()
+		{
+		document.getElementById("demo").innerHTML=Date();
+		}
+	</script>
+	<p id="demo"></p>
+
+	<script>
+	function checkCookies()
+	{
+	if (navigator.cookieEnabled==true)
+		{
+		alert("已启用 cookie")
+		}
+	else
+		{
+		alert("未启用 cookie")
+		}
+	}
+	</script>
+
+	<p>提示框会告诉你，浏览器是否已启用 cookie。</p>
+	
+	请输入英文字符：<input type="text" id="fname" onchange="myFunction()">
+	<p>当您离开输入字段时，会触发将输入文本转换为大写的函数。</p>
+
+
+	<div onmouseover="mOver(this)" onmouseout="mOut(this)" style="background-color:green;width:120px;height:20px;padding:40px;color:#ffffff;">把鼠标移到上面</div>
+	<hr />
+	<div onmousedown="mDown(this)" onmouseup="mUp(this)" style="background-color:green;color:#ffffff;width:90px;height:20px;padding:40px;font-size:12px;">请点击这里</div>
+
+	
+	请输入英文字符：<input type="text" onfocus="myFocus(this)">
+	<p>当输入字段获得焦点时，会触发改变背景颜色的函数。</p>
+
+</body>
+</html>

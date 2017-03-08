@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="UTF-8">
+<script>
+function myFunction(var1,var2)
+{
+document.getElementById(var1).innerHTML=var2;
+}
+function welcome(name,job){
+	alert("welcome "+name+" the "+job);
+}
+function sum(var1,var2){
+	return var1+var2;
+}
+</script>
+</head>
+
+<body>
+
+<h1>My Web Page</h1>
+
+<p id="demo">A Paragraph</p>
+<p id="sum">2+3=</p>
+<button type="button" onclick="myFunction('demo','My First JavaScript Function')">Try it</button>
+<button type="button" onclick="myFunction('sum',sum(2,3))">2+3=</button>
+<button type="button" onclick="welcome('liyubin','软件工程师')">弹出欢迎窗口</button>
+
+
+</body>
+</html>

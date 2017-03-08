@@ -18,5 +18,9 @@
   "bugs": {
     "url": "https://github.com/code159/VueFirst/issues"
   },
-  "homepage": "https://github.com/code159/VueFirst#readme"
+  "homepage": "https://github.com/code159/VueFirst#readme",
+  "dependencies": {
+    "vue": "^2.2.1",
+    "vue-resource": "^1.2.1"
+  }
 }
