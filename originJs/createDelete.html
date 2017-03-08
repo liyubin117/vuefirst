@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>createDelete</title>
+    <script>
+        function create(id,el,content){
+            var para=document.createElement(el);
+            var node=document.createTextNode(content);
+            para.appendChild(node);
+            var element=document.getElementById(id);
+            element.appendChild(para);
+        }
+        function deleteP1(){
+            var parent=document.getElementById("div1");
+            var child=document.getElementById("p1");
+            parent.removeChild(child);
+        }
+        function deleteP2(){
+            var child=document.getElementById("p2");
+            child.parentNode.removeChild(child);
+        }
+    </script>
+</head>
+<body>
+<button type="button" onclick="create('div1','p','新增加的段落')">增加一个段落</button>
+<button type="button" onclick="deleteP1()">删除p1</button>
+<button type="button" onclick="deleteP2()">删除p2</button>
+
+<div id="div1">
+    <p id="p1">p1:这是一个段落。</p>
+    <p id="p2">p2:这是另一个段落。</p>
+</div>
+
+
+
+
+</body>
+</html>
