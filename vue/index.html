@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="vue.js"></script>
+
+</head>
+<body>
+<div id="app">
+    {{ message }}
+</div>
+<div id="app-2">
+  <span v-bind:title="message">
+    Hover your mouse over me for a few seconds to see my dynamically bound title!
+  </span>
+</div>
+<div id="app-3">
+    <p v-if="seen">Now you see me</p>
+</div>
+<div id="app-4">
+    <ol>
+        <li v-for="todo in todos">
+            {{ todo.text }}
+        </li>
+    </ol>
+</div>
+<div id="app-5">
+    <p>{{ message }}</p>
+    <button v-on:click="reverseMessage">Reverse Message</button>
+</div>
+<div id="app-6">
+    <p>{{ message }}</p>
+    <input v-model="message">
+</div>
+<!--?-->
+<ol>
+    <!-- Create an instance of the todo-item component -->
+    <todo-item></todo-item>
+</ol>
+<!--vue的模版语法，v-once表示一次性插值-->
+<div id="app-7" v-once>{{msg}}</div>
+<!--v-html 新增html元素-->
+<div id="app-8" v-html="rawHtml">
+    <div>{{rawHtml}}</div>
+</div>
+
+
+<!--自定义的js文件不能放在头部，一般要放到最后。因为要先有元素id,vue才能获取相应的元素-->
+<script src="vueDemo.js"></script>
+
+</body>
+</html>
