@@ -76,3 +76,58 @@ var app8=new Vue({
         rawHtml:"<h1>新增h1元素</h1>"
     }
 });
+var app9 = new Vue({
+    el: '#app-9',
+    data: {
+        yes: true,
+        no: false,
+        age: 28,
+        name: 'keepfool'
+    }
+});
+var app10 = new Vue({
+    el: '#app-10',
+    data: {
+        yes: true,
+        no: false,
+        age: 28,
+        name: 'keepfool'
+    }
+});
+var app11 = new Vue({
+    el: '#app-11',
+    data: {
+        age: 28,
+        name: 'keepfool',
+        sex: 'Male'
+    }
+});
+var app12 = new Vue({
+    el: '#app-12',
+    data: {
+        people: [{
+            name: 'Jack',
+            age: 30,
+            sex: 'Male'
+        }, {
+            name: 'Bill',
+            age: 26,
+            sex: 'Male'
+        }, {
+            name: 'Tracy',
+            age: 22,
+            sex: 'Female'
+        }, {
+            name: 'Chris',
+            age: 36,
+            sex: 'Male'
+        }]
+    }
+});
+var app13 = new Vue({
+    el: '#app-13',
+    data: {
+        activeNumber: 1,
+        pageCount: 10
+    }
+})

@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <script src="vue.js"></script>
-
+    <script src="js\vue.js"></script>
+    <link rel="stylesheet" href="styles/demo.css" />
 </head>
 <body>
 <div id="app">
@@ -44,10 +44,61 @@
 <div id="app-8" v-html="rawHtml">
     <div>{{rawHtml}}</div>
 </div>
+<div id="app-9">
+    <h3>v-if</h3>
+    <p>Hello, Vue.js!</p>
+    <p v-if="yes">Yes!</p>
+    <p v-if="no">No!</p>
+    <p v-if="age >= 25">Age: {{ age }}</p>
+    <p v-if="name.indexOf('jack') >= 0">Name: {{ name }}</p>
+</div>
+<div id="app-10">
+    <h3>v-show</h3>
+    <p>Hello, Vue.js!</p>
+    <p v-show="yes">Yes!</p>
+    <p v-show="no">No!</p>
+    <p v-show="age >= 25">Age: {{ age }}</p>
+    <p v-show="name.indexOf('jack') >= 0">Name: {{ name }}</p>
+</div>
+<div id="app-11">
+    <h3>v-else</h3>
+    <p v-if="age >= 25">Age: {{ age }}</p>
+    <p v-else>Name: {{ name }}</p>
+    <p>---------------------分割线---------------------</p>
+    <p v-show="name.indexOf('keep') >= 0">Name: {{ name }}</p>
+    <p v-else>Sex: {{ sex }}</p>
+</div>
+<div id="app-12">
+    <table>
+        <thead>
+        <tr>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Sex</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr v-for="person in people">
+            <td>{{ person.name  }}</td>
+            <td>{{ person.age  }}</td>
+            <td>{{ person.sex  }}</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<div id="app-13">
+    <ul class="pagination">
+        <!--v-for="n in pageCount"这行代码，pageCount是一个整数，遍历时n从0开始，然后遍历到pageCount –1结束。-->
+        <li v-for="n in pageCount">
+            <a href="javascripit:void(0)" v-bind:class="activeNumber === n + 1 ? 'active' : ''">{{ n + 1 }}</a>
+        </li>
+    </ul>
+</div>
+
 
 
 <!--自定义的js文件不能放在头部，一般要放到最后。因为要先有元素id,vue才能获取相应的元素-->
-<script src="vueDemo.js"></script>
+<script src="js\vueDemo.js"></script>
 
 </body>
 </html>
