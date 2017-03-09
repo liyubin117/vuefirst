@@ -130,4 +130,18 @@ var app13 = new Vue({
         activeNumber: 1,
         pageCount: 10
     }
-})
+});
+var app14=new Vue({
+    el:"#app-14",
+    data:{
+        message:"hello liyubin!"
+    },
+    methods:{
+        say:function(msg){
+            alert(msg)
+        },
+        hi:function(){
+            alert(this.message)
+        }
+    }
+});
