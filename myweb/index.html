@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>myweb</title>
+    <script src="js\vue.js"></script>
+</head>
+<body>
+<h1 align="center">我的网站！</h1>
+<fieldset align="right" id="Muser">
+    <legend>登陆模块</legend>
+    <label>帐户名：</label>
+    <input type="text" v-model="username"/>
+    <p></p>
+    <label>密码：</label>
+    <input type="password" v-model="password"/>
+    <p></p>
+    <button v-on:click="logon">登陆</button>
+    <button v-on:click="register">注册</button>
+</fieldset>
+
+<script src="js\myvue.js"></script>
+</body>
+</html>
