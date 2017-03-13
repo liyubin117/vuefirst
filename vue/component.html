@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>component</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="styles/demo.css">
+</head>
+<body>
+<div id="app">
+    <div id="app1">
+        <my-component></my-component>
+    </div>
+
+    <div id="app2">
+        <my-component></my-component>
+    </div>
+
+    <div id="app3">
+        <my-component2></my-component2>
+    </div>
+
+    <div id="app4">
+        <parent-component></parent-component>
+    </div>
+
+    <div id="app5">
+        <my-component3></my-component3>
+        <my-component4></my-component4>
+    </div>
+
+    <div id="app6">
+        <my-component5></my-component5>
+    </div>
+    <script type="x-template" id="div6">
+        <p>用到了script解耦</p>
+    </script>
+
+    <script type="text/x-template" id="myComponent">
+        <table>
+            <tr>
+                <th colspan="2">
+                    子组件数据
+                </th>
+            </tr>
+            <tr>
+                <td>my name</td>
+                <td>{{ myName }}</td>
+            </tr>
+            <tr>
+                <td>my age</td>
+                <td>{{ myAge }}</td>
+            </tr>
+        </table>
+    </script>
+    <div id="app7">
+        <my-component v-bind:my-name="name" v-bind:my-age="age"></my-component>
+    </div>
+
+    <!--该组件不会被渲染-->
+    <my-component></my-component>
+</div>
+</body>
+<script src="js/vue.js"></script>
+<script src="js/componentDemo.js"></script>
+</html>
