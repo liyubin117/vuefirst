@@ -5,12 +5,13 @@
     <title>Title</title>
     <script src="js\vue.js"></script>
     <link rel="stylesheet" href="styles/demo.css" />
+
 </head>
 <body>
 <div id="app">
     {{ message }}
 </div>
-<div id="app-2">
+<div id="id">
   <span v-bind:title="message">
     Hover your mouse over me for a few seconds to see my dynamically bound title!
   </span>
@@ -99,9 +100,27 @@
     <button v-on:click="hi">press to welcome you</button>
 </div>
 
+<div id="app-15">
+    <p>Original message: "{{ message }}"</p>
+    <p>Computed reversed message: "{{ reversedMessage }}"</p>
+    <p>Full Name:{{getFullName}}</p>
+    <p>Set Name:{{newName}}</p>
+    <p>new Full Name:{{getFullName}}</p>
+</div>
+
+<div id="watch-example">
+    <p>
+        Ask a yes/no question:
+        <input v-model="question">
+    </p>
+    <p>{{ answer }}</p>
+</div>
+
+<!--watch-example用到-->
+<script src="https://unpkg.com/axios@0.12.0/dist/axios.min.js"></script>
+<script src="https://unpkg.com/lodash@4.13.1/lodash.min.js"></script>
 
 <!--自定义的js文件不能放在头部，一般要放到最后。因为要先有元素id,vue才能获取相应的元素-->
 <script src="js\vueDemo.js"></script>
-
 </body>
 </html>

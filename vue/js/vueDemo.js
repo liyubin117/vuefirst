@@ -17,9 +17,10 @@ var app = new Vue({
 // 绑定 DOM 元素属性
 // v-bind：将这个元素节点的 title 属性和 Vue 实例的 message 属性绑定到一起。
 var app2 = new Vue({
-    el: '#app-2',
+    el: this.id,
     data: {
-        message: 'You loaded this page on ' + new Date()
+        message: 'You loaded this page on ' + new Date(),
+        id: 'app-2'
     }
 });
 // v-if 控制显示
@@ -145,3 +146,70 @@ var app14=new Vue({
         }
     }
 });
+
+var app15 = new Vue({
+    el: '#app-15',
+    data: {
+        message: 'Hello',
+        firstName: 'li',
+        lastName: 'yubin',
+        newName:'li handsom'
+    },
+    computed: {
+        // a computed getter
+        reversedMessage: function () {
+            // `this` points to the vm instance
+            return this.message.split('').reverse().join('')
+        },
+        getFullName: function(){
+            return this.firstName+" "+this.lastName
+        },
+        setFullName: function(newName){
+            var names=newName.split(" ")
+            this.firstName=names[0]
+            this.lastName=names[2]
+        }
+    }
+});
+
+// watch属性的使用
+var watchExampleVM = new Vue({
+    el: '#watch-example',
+    data: {
+        question: '',
+        answer: 'I cannot give you an answer until you ask a question!'
+    },
+    watch: {
+        // 如果 question 发生改变，这个函数就会运行
+        question: function (newQuestion) {
+            this.answer = 'Waiting for you to stop typing...'
+            this.getAnswer()
+        }
+    },
+    methods: {
+        // _.debounce 是一个通过 lodash 限制操作频率的函数。
+        // 在这个例子中，我们希望限制访问yesno.wtf/api的频率
+        // ajax请求直到用户输入完毕才会发出
+        // 学习更多关于 _.debounce function (and its cousin
+        // _.throttle), 参考: https://lodash.com/docs#debounce
+        getAnswer: _.debounce(
+            function () {
+                var vm = this
+                if (this.question.indexOf('?') === -1) {
+                    vm.answer = 'Questions usually contain a question mark. ;-)'
+                    return
+                }
+                vm.answer = 'Thinking...'
+                axios.get('https://yesno.wtf/api')
+                    .then(function (response) {
+                        vm.answer = _.capitalize(response.data.answer)
+                    })
+                    .catch(function (error) {
+                        vm.answer = 'Error! Could not reach the API. ' + error
+                    })
+            },
+            // 这是我们为用户停止输入等待的毫秒数
+            500
+        )
+    }
+})
