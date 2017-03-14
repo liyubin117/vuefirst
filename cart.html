@@ -20,7 +20,6 @@
 </head>
 <body class="checkout">
 <div id="app">
-    <p>{{titile}}</p>
     <svg style="position: absolute; width: 0; height: 0; overflow: hidden;" version="1.1"
          xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
         <defs>
@@ -71,7 +70,7 @@
                         </ul>
                     </div>
                     <ul class="cart-item-list">
-                        <li>
+                        <li v-for="(item,index) in productList">
                             <div class="cart-tab-1">
                                 <!-- 单选 -->
                                 <div class="cart-item-check">
@@ -83,30 +82,31 @@
                                 </div>
                                 <!-- 商品图片 -->
                                 <div class="cart-item-pic">
-                                    <img alt="烟">
+                                    <!--<img alt="烟">-->
+                                    <img v-bind:src="item.productImage" alt="烟">
                                 </div>
                                 <!-- 商品名称 -->
                                 <div class="cart-item-title">
-                                    <div class="item-name"></div>
+                                    <div class="item-name">{{item.productName+"--"+index}}</div>
                                 </div>
                                 <!-- 赠品 -->
                                 <div class="item-include">
                                     <dl>
                                         <dt>赠送:</dt>
-                                        <dd>打火机</dd>
+                                        <dd v-for="part in item.parts" v-text="part.partsName"></dd>
                                     </dl>
                                 </div>
                             </div>
                             <!-- 单价 -->
                             <div class="cart-tab-2">
-                                <div class="item-price">18</div>
+                                <div class="item-price">{{item.productPrice}}</div>
                             </div>
                             <div class="cart-tab-3">
                                 <div class="item-quantity">
                                     <div class="select-self select-self-open">
                                         <div class="quentity">
                                             <a href="javascript:;">-</a>
-                                            <input type="text" disabled value="1">
+                                            <input type="text" disabled value="1" v-model="item.productQuentity">
                                             <a href="javascript:;">+</a>
                                         </div>
                                     </div>
@@ -115,7 +115,7 @@
                             </div>
                             <div class="cart-tab-4">
                                 <!-- 总金额 -->
-                                <div class="item-price-total"></div>
+                                <div class="item-price-total">{{item.productPrice*item.productQuentity}}</div>
                             </div>
                             <!-- 删除功能 -->
                             <div class="cart-tab-5">

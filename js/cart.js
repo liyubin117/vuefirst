@@ -1,7 +1,8 @@
 var vm=new Vue({
     el :'#app',
     data :{
-        titile: 'Hello Vue'
+        productList:[],
+        totalMoney:0
     },
     // 局部过滤器
     filters:{
@@ -14,7 +15,11 @@ var vm=new Vue({
     methods:{
         // 查询商品信息
         cartView:function(){
-            this.title='hello';
+            var _this=this;
+            this.$http.get('data/cart.json',{id:123}).then(function(res){
+                _this.productList=res.body.result.productList;
+                _this.totalMoney=res.body.result.totalMoney;
+            })
         }
     }
 });
