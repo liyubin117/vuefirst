@@ -2,7 +2,8 @@ var user=new Vue({
     el:'#Muser',
     data:{
         username:undefined,
-        password:undefined
+        password:undefined,
+        enabled:true
     },
     methods:{
         logon:function(){

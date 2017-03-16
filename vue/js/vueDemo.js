@@ -6,7 +6,7 @@ var app = new Vue({
     el: '#app',
     data: {
         message: 'Hello Vue!',
-        a:1
+        a: 1
     },
     // 用到了生命周期，在对象创建后自动调用
     created: function () {
@@ -36,9 +36,9 @@ var app4 = new Vue({
     el: '#app-4',
     data: {
         todos: [
-            { text: 'Learn JavaScript' },
-            { text: 'Learn Vue' },
-            { text: 'Build something awesome'}
+            {text: 'Learn JavaScript'},
+            {text: 'Learn Vue'},
+            {text: 'Build something awesome'}
         ]
     }
 });
@@ -71,10 +71,10 @@ var app7 = new Vue({
         msg: 'Hello Vue! once!'
     }
 });
-var app8=new Vue({
-    el:'#app-8',
-    data:{
-        rawHtml:"<h1>新增h1元素</h1>"
+var app8 = new Vue({
+    el: '#app-8',
+    data: {
+        rawHtml: "<h1>新增h1元素</h1>"
     }
 });
 var app9 = new Vue({
@@ -132,16 +132,16 @@ var app13 = new Vue({
         pageCount: 10
     }
 });
-var app14=new Vue({
-    el:"#app-14",
-    data:{
-        message:"hello liyubin!"
+var app14 = new Vue({
+    el: "#app-14",
+    data: {
+        message: "hello liyubin!"
     },
-    methods:{
-        say:function(msg){
+    methods: {
+        say: function (msg) {
             alert(msg)
         },
-        hi:function(){
+        hi: function () {
             alert(this.message)
         }
     }
@@ -153,7 +153,7 @@ var app15 = new Vue({
         message: 'Hello',
         firstName: 'li',
         lastName: 'yubin',
-        newName:'li handsom'
+        newName: 'li handsom'
     },
     computed: {
         // a computed getter
@@ -161,13 +161,13 @@ var app15 = new Vue({
             // `this` points to the vm instance
             return this.message.split('').reverse().join('')
         },
-        getFullName: function(){
-            return this.firstName+" "+this.lastName
+        getFullName: function () {
+            return this.firstName + " " + this.lastName
         },
-        setFullName: function(newName){
-            var names=newName.split(" ")
-            this.firstName=names[0]
-            this.lastName=names[2]
+        setFullName: function (newName) {
+            var names = newName.split(" ")
+            this.firstName = names[0]
+            this.lastName = names[2]
         }
     }
 });

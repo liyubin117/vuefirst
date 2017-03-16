@@ -7,16 +7,19 @@
 </head>
 <body>
 <h1 align="center">我的网站！</h1>
-<fieldset align="right" id="Muser">
+<fieldset align="right" id="Muser" >
     <legend>登陆模块</legend>
-    <label>帐户名：</label>
-    <input type="text" v-model="username"/>
-    <p></p>
-    <label>密码：</label>
-    <input type="password" v-model="password"/>
-    <p></p>
-    <button v-on:click="logon">登陆</button>
-    <button v-on:click="register">注册</button>
+    <div  v-if="enabled">
+        <label>帐户名：</label>
+        <input type="text" v-model="username"/>
+        <p></p>
+        <label>密码：</label>
+        <input type="password" v-model="password"/>
+        <p></p>
+        <button v-on:click="logon">登陆</button>
+        <button v-on:click="register">注册</button>
+    </div>
+    <div v-else>登陆模块已被禁用</div>
 </fieldset>
 
 <script src="js\myvue.js"></script>

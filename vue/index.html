@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <script src="js\vue.js"></script>
-    <link rel="stylesheet" href="styles/demo.css" />
+    <script src="js/lib/vue.js"></script>
+    <link rel="stylesheet" href="styles/demo.css"/>
 
 </head>
 <body>
@@ -19,6 +19,7 @@
 <div id="app-3">
     <p v-if="seen">Now you see me</p>
 </div>
+
 <div id="app-4">
     <ol>
         <li v-for="todo in todos">
@@ -63,8 +64,8 @@
 </div>
 <div id="app-11">
     <h3>v-else</h3>
-    <p v-if="age >= 25">Age: {{ age }}</p>
-    <p v-else>Name: {{ name }}</p>
+    <div v-if="age >= 25">Age: {{ age }}</div>
+    <div v-else>Name: {{ name }}</div>
     <p>---------------------分割线---------------------</p>
     <p v-show="name.indexOf('keep') >= 0">Name: {{ name }}</p>
     <p v-else>Sex: {{ sex }}</p>
@@ -76,13 +77,15 @@
             <th>Name</th>
             <th>Age</th>
             <th>Sex</th>
+            <th>Index</th>
         </tr>
         </thead>
         <tbody>
-        <tr v-for="person in people">
-            <td>{{ person.name  }}</td>
-            <td>{{ person.age  }}</td>
-            <td>{{ person.sex  }}</td>
+        <tr v-for="(person,index) in people">
+            <td>{{ person.name }}</td>
+            <td>{{ person.age }}</td>
+            <td>{{ person.sex }}</td>
+            <td>{{index}}</td>
         </tr>
         </tbody>
     </table>
@@ -94,6 +97,7 @@
             <a href="javascripit:void(0)" v-bind:class="activeNumber === n + 1 ? 'active' : ''">{{ n + 1 }}</a>
         </li>
     </ul>
+    <p v-for="n in 5">{{n}}</p>
 </div>
 <div id="app-14">
     <button v-on:click="say('Hi')">press to say hi</button>
@@ -121,6 +125,6 @@
 <script src="https://unpkg.com/lodash@4.13.1/lodash.min.js"></script>
 
 <!--自定义的js文件不能放在头部，一般要放到最后。因为要先有元素id,vue才能获取相应的元素-->
-<script src="js\vueDemo.js"></script>
+<script src="js/vueDemo.js"></script>
 </body>
 </html>
