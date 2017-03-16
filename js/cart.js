@@ -6,7 +6,9 @@ var vm=new Vue({
     },
     // 局部过滤器
     filters:{
-
+        formatMoney:function (value) {
+            return "￥"+value.toFixed(2);
+        }
     },
     // 相当于入口方法
     mounted:function () {
