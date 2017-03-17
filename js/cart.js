@@ -2,7 +2,8 @@ var vm=new Vue({
     el :'#app',
     data :{
         productList:[],
-        totalMoney:0
+        totalMoney:0,
+        amount:0
     },
     // 局部过滤器
     filters:{
@@ -22,6 +23,11 @@ var vm=new Vue({
                 _this.productList=res.body.result.productList;
                 _this.totalMoney=res.body.result.totalMoney;
             })
+        },
+        addAmount:function (product,add) {
+            product.productQuentity=product.productQuentity+add
+            if(product.productQuentity<0)
+                product.productQuentity=0
         }
     }
 });

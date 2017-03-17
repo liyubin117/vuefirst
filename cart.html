@@ -99,15 +99,15 @@
                             </div>
                             <!-- 单价 -->
                             <div class="cart-tab-2">
-                                <div class="item-price">￥{{item.productPrice | formatMoney}}</div>
+                                <div class="item-price">{{item.productPrice | formatMoney}}</div>
                             </div>
                             <div class="cart-tab-3">
                                 <div class="item-quantity">
                                     <div class="select-self select-self-open">
                                         <div class="quentity">
-                                            <a href="javascript:;">-</a>
+                                            <a href="javascript:;" v-on:click="addAmount(item,-1)">-</a>
                                             <input type="text" disabled value="1" v-model="item.productQuentity">
-                                            <a href="javascript:;">+</a>
+                                            <a href="javascript:;" v-on:click="addAmount(item,1)">+</a>
                                         </div>
                                     </div>
                                     <div class="item-stock">有货</div>
@@ -115,7 +115,7 @@
                             </div>
                             <div class="cart-tab-4">
                                 <!-- 总金额 -->
-                                <div class="item-price-total">{{item.productPrice*item.productQuentity}}</div>
+                                <div class="item-price-total">{{item.productPrice*item.productQuentity | formatMoney}}</div>
                             </div>
                             <!-- 删除功能 -->
                             <div class="cart-tab-5">
