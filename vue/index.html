@@ -120,6 +120,46 @@
     <p>{{ answer }}</p>
 </div>
 
+<!--控件的使用，v-model实现数据双向绑定,v-bind绑定在Vue实例的动态属性上-->
+<div id="app-16">
+    <!--输入框-->
+    <input type="text" v-model="message"/>
+    <span>Your input is : {{ message }}</span>
+    <p></p>
+    <!--单选框-->
+    <label><input type="radio" value="male" v-model="gender"> 男 </label>
+    <label><input type="radio" value="female" v-model="gender"> 女 </label>
+    <span>{{ gender }}</span>
+    <p></p>
+    <!--单个勾选框-->
+    <input type="checkbox" v-model="checked" v-bind:true-value="a" v-bind:false-value="b"/>
+    <span>checked : {{ checked }}</span>
+    <p></p>
+    <!--多个勾选框-->
+    <label><input type="checkbox" value="1" v-model=" multiChecked">1</label>
+    <label><input type="checkbox" value="2" v-model=" multiChecked">2</label>
+    <label><input type="checkbox" value="3" v-model=" multiChecked">3</label>
+    <span>MultiChecked: {{ multiChecked.join('|') }}</span>
+    <p></p>
+    <!--单选-->
+    <select v-model="selected">
+        <option>A</option>
+        <option>B</option>
+        <option>C</option>
+    </select>
+    <span>Selected: {{ selected }}</span>
+    <p></p>
+    <!--多选-->
+    <select v-model="multiSelected" multiple>
+        <option>A</option>
+        <option>B</option>
+        <option>C</option>
+    </select>
+    <br>
+    <span>MultiSelected: {{ multiSelected.join('|') }}</span>
+    <p></p>
+</div>
+
 <!--watch-example用到-->
 <script src="https://unpkg.com/axios@0.12.0/dist/axios.min.js"></script>
 <script src="https://unpkg.com/lodash@4.13.1/lodash.min.js"></script>

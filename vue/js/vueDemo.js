@@ -172,6 +172,21 @@ var app15 = new Vue({
     }
 });
 
+var app16=new Vue({
+    el : '#app-16',
+    data: {
+        message : '',
+        gender : 'male',
+        checked : '',
+        multiChecked : [],
+        selected : 'A',
+        multiSelected : [],
+        a:'已选中',
+        b:'未选中'
+    }
+});
+
+
 // watch属性的使用
 var watchExampleVM = new Vue({
     el: '#watch-example',

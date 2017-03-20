@@ -19,15 +19,15 @@ var vm=new Vue({
         // 查询商品信息
         cartView:function(){
             var _this=this;
-            // this.$http.get('data/cart.json',{id:123}).then(function(res){
-            //     _this.productList=res.body.result.productList;
-            //     _this.totalMoney=res.body.result.totalMoney;
-            // })
-            // ES6语法
-            this.$http.get('data/cart.json',{id:123}).then(res=>{
+            this.$http.get('data/cart.json',{id:123}).then(function(res){
                 _this.productList=res.body.result.productList;
                 _this.totalMoney=res.body.result.totalMoney;
             })
+            // ES6语法
+            // this.$http.get('data/cart.json',{id:123}).then(res=>{
+            //     _this.productList=res.body.result.productList;
+            //     _this.totalMoney=res.body.result.totalMoney;
+            // })
         },
         addAmount:function (product,add) {
             product.productQuentity=product.productQuentity+add
