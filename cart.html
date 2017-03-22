@@ -74,7 +74,8 @@
                             <div class="cart-tab-1">
                                 <!-- 单选 -->
                                 <div class="cart-item-check">
-                                    <a href="javascipt:;" class="item-check-btn">
+                                    <!--当item.checked为true时，check加到原class后，并用空格间隔-->
+                                    <a href="javascipt:;" class="item-check-btn" v-bind:class="{'check':item.checked}" v-on:click="selectedProduct(item)">
                                         <svg class="icon icon-ok">
                                             <use xlink:href="#icon-ok"></use>
                                         </svg>

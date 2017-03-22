@@ -33,6 +33,18 @@ var vm=new Vue({
             product.productQuentity=product.productQuentity+add
             if(product.productQuentity<0)
                 product.productQuentity=0
+        },
+        selectedProduct:function (item) {
+            // 判断当前对象是否包含某属性。若类型等于undefined，则说明未定义。可以在item里增加checkd字段
+            // 用Vue监听不存在的变量的两种方法： 1、全局注册Vue.set(object,key,value)；2、局部注册vm.$set(object,key,value)
+            if(typeof item.checked== 'undefined'){
+                //全局注册
+                Vue.set(item,'checked',true)
+                // 局部注册
+                // this.$set(item.'checked',true)
+            }else{
+                item.checked=!item.checked
+            }
         }
     }
 });
